@@ -6,7 +6,7 @@ RUN npm install jquery
 COPY . .
 RUN npm run build
 # Stage2
-FROM nginx:latest AS pord
+FROM nginx:latest AS prod
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/dist/quiz-frontend /usr/share/nginx/html
 EXPOSE 80:80
